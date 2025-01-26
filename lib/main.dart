@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dashboard/views/dashboard_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ResponsiveDashboardApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ResponsiveDashboardApp extends StatelessWidget {
+  const ResponsiveDashboardApp({super.key});
 
   @override
   Widget build(BuildContext context) {
