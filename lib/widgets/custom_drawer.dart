@@ -10,33 +10,46 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: [
-          UserInfoListTile(
-            icon: Assets.imagesAvatar3,
-            title: "John Doe",
-            subtitle: "demon@gmail.com",
-          ),
-          SizedBox(height: 10),
-          DrawerItemsListView(),
-          Expanded(child: SizedBox()),
-          InActiveDrawerItem(
-            drawerItemModel: DrawerItemModel(
-              title: "Settings",
-              image: Assets.imagesSettings,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                UserInfoListTile(
+                  icon: Assets.imagesAvatar3,
+                  title: "John Doe",
+                  subtitle: "demon@gmail.com",
+                ),
+                SizedBox(height: 10),
+              ],
             ),
           ),
-          InActiveDrawerItem(
-            drawerItemModel: DrawerItemModel(
-              title: "Logout",
-              image: Assets.imagesLogout,
-            ),
+        ),
+        DrawerItemsListView(),
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              Expanded(child: SizedBox()),
+              InActiveDrawerItem(
+                drawerItemModel: DrawerItemModel(
+                  title: "Settings",
+                  image: Assets.imagesSettings,
+                ),
+              ),
+              InActiveDrawerItem(
+                drawerItemModel: DrawerItemModel(
+                  title: "Logout",
+                  image: Assets.imagesLogout,
+                ),
+              ),
+              const SizedBox(height: 48),
+            ],
           ),
-          const SizedBox(height: 48),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
